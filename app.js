@@ -457,7 +457,8 @@ function viewMembers() {
   }
 
   const out = el('div', {},
-    el('p', { class: 'hero' }, '119th Congress (2024-26)'),
+    el('p', { class: 'hero' }, '119th Congress (2025-26)'),
+    el('p', { class: 'dates' }, 'January 3, 2025 – January 3, 2027'),
     el('p', { class: 'sub' },
       el('b', {}, num(INDEX.letters)), ' letters published on ',
       el('b', {}, num(INDEX.members_with_letters)),
@@ -1213,7 +1214,7 @@ async function render() {
   document.title = p.get('member')
     ? `${byId.get(p.get('member'))?.name || 'Member'} · Letters from Congress (2007-present)`
     : p.get('to') ? `${p.get('to')} · Letters from Congress (2007-present)`
-      : '119th Congress (2024-26) · Letters from Congress (2007-present)';
+      : '119th Congress (2025-26) · Letters from Congress (2007-present)';
 }
 
 async function boot() {

@@ -8,8 +8,11 @@
 // the same parameters. The home page's own links use ?q= and ?term= only.
 (function () {
   var p = new URLSearchParams(location.search);
-  var old = ['member', 'to', 'year', 'view', 'chamber', 'party', 'as', 'sort'];
-  if (old.some(function (k) { return p.has(k); })) {
+  // ?view= is the home page's own too (topics, search), so only other views go.
+  var old = ['member', 'to', 'year', 'chamber', 'party', 'as', 'sort'];
+  var mine = ['topics', 'search'];
+  if (old.some(function (k) { return p.has(k); })
+      || (p.has('view') && mine.indexOf(p.get('view')) < 0)) {
     location.replace('../Explorer-Congressional-Letters-119/' + location.search + location.hash);
   }
 })();
@@ -311,6 +314,6 @@ footer a { color: #fff; text-decoration: underline; }
   </div>
 </footer>
 </div>
-<script type="module" src="hub.js?v=20261112223359"></script>
+<script type="module" src="hub.js?v=20261112224853"></script>
 </body>
 </html>
